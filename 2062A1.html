@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="Anton Farag">
+    <meta charset="UTF-8">
+    <title>Assignment 1</title>
+</head>
+<body>
+
+  <h1>Array Element Adder</h1>
+  <input type="text" id="inputElement" placeholder="Enter an element">
+  <button onclick="addElement()">Add</button>
+  <button onclick="displayElements()">Display</button>
+  <div id="display"></div>
+
+  <script>
+    let myArray = [];
+
+    function addElement() {
+      const element = document.getElementById('inputElement').value;
+      myArray.push(element);
+      document.getElementById('inputElement').value = '';
+    }
+
+    function displayElements() {
+      const displayDiv = document.getElementById('display');
+      displayDiv.innerHTML = '';
+      for (let i = 0; i < myArray.length; i++) {
+        displayDiv.innerHTML += `Element ${i} = ${myArray[i]}<br>`;
+      }
+    }
+  </script>
+
+  <h1>Array Product Calculator</h1>
+  <p>Enter integers separated by commas (e.g., 2,3,4,5):</p>
+  <input type="text" id="inputArray" placeholder="Enter numbers here">
+  <button onclick="calculateProduct()">Calculate Product</button>
+  <div id="result"></div>
+
+  <script>
+    function calculateProduct() {
+      const input = document.getElementById("inputArray").value;
+      const numbers = input.split(",").map(num => parseInt(num.trim()));
+
+      if (numbers.some(isNaN)) {
+        document.getElementById("result").innerText = "Please enter valid integers!";
+        return;
+      }
+
+      const product = numbers.reduce((product, num) => product * num, 1);
+      document.getElementById("result").innerText = "Product of array: " + product;
+    }
+  </script>
+
+</body>
+</html>

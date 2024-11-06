@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="author" content="Anton Farag">
+  <meta charset="UTF-8">
+  <title>Assignment 2</title>
+</head>
+<body>
+  <input type="text" id="inputNumber" >
+  <br>
+  <input type="text" id="outputNumber" disabled>
+  <br>
+  <button type="submit">Reverse</button>
+
+  <script>
+    const inputField = document.getElementById("inputNumber");
+    const outputField = document.getElementById("outputNumber");
+
+    inputField.addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        reverseNumber();
+      }
+    });
+
+    function reverseNumber() {
+      const inputNumber = inputField.value;
+      const reversedNumber = inputNumber.split("").reverse().join("");
+      outputField.value = reversedNumber;
+    }
+  </script>
+</body>
+</html>

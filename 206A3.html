@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="Anton Farag">
+    <meta charset="UTF-8">
+    <title>Assignment 3</title>
+</head>
+<body>
+  <input type="text" id="inputString" >
+  <button onclick="sortString()">Sort Alphabetically</button>
+  <p id="output"></p>
+
+  <script>
+    function sortString() {
+      const inputString = document.getElementById("inputString").value;
+      const sortedString = sortStringAlphabetically(inputString);
+      document.getElementById("output").textContent = sortedString;
+    }
+
+    function sortStringAlphabetically(str) {
+      const charArray = str.split("");
+      charArray.sort();
+      return charArray.join("");
+    }
+  </script>
+</body>
+</html>
